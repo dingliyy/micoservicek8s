@@ -1,0 +1,23 @@
+server:
+  port: 50001
+  servlet:
+    context-path: /web
+spring:
+  application:
+    name: web-service
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+    kubernetes:
+      reload:
+        enabled: true
+        mode: polling
+        period: 5000
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
+    org.springframework.cloud.loadbalancer: debug
